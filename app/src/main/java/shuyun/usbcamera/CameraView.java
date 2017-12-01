@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.TextureView;
+
 import java.nio.ByteBuffer;
 
 /**
@@ -43,6 +45,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, R
     private boolean isMirror = false;
     private Context context;
     private boolean isViewCreated = false;
+    private TextureView ttv;
 
     private USBCamera usbCamera;
 

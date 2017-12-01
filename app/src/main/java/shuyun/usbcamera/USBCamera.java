@@ -1,7 +1,5 @@
 package shuyun.usbcamera;
 
-import android.content.Context;
-
 /**
  * Created by Shuyun on 2017/10/19 0019.
  */
@@ -13,10 +11,7 @@ public class USBCamera{
     }
 
     public USBCamera(){
-
     }
-
-    // Nativa functions
 
     public native int openCamera();
 
