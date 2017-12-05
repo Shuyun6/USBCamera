@@ -6,6 +6,9 @@ package shuyun.usbcamera;
 
 public class USBCamera{
 
+    public static final int IMG_WIDTH = 640;
+    public static final int IMG_HEIGHT = 480;
+
     static{
         System.loadLibrary("USBCamera-lib");
     }
