@@ -41,6 +41,7 @@ import static android.opengl.GLES20.glGenFramebuffers;
 import static android.opengl.GLES20.glGenRenderbuffers;
 import static android.opengl.GLES20.glGenTextures;
 import static android.opengl.GLES20.glGetError;
+import static android.opengl.GLES20.glLinkProgram;
 import static android.opengl.GLES20.glRenderbufferStorage;
 import static android.opengl.GLES20.glTexImage2D;
 import static android.opengl.GLES20.glViewport;
@@ -168,12 +169,29 @@ public class GLHelper {
         return texture[0];
     }
 
-    public int linkProgram(int vertextShaderResource, int fragmentShaderResource){
+    public int getProgram(int vertextShaderResource, int fragmentShaderResource){
         int vertextId = compileVertextShader(readResource(vertextShaderResource));
-        int fragmentId = compileFragmentShader(readResource(vertextShaderResource));
+        int fragmentId = compileFragmentShader(readResource(fragmentShaderResource));
         int program = linkProgram(vertextId, fragmentId);
         return program;
     }
+    public static int linkProgram(int vertexShaderId, int fragmentShaderId){
+        final int programObjectId = GLES20.glCreateProgram();
+        if(programObjectId == 0){
+            return 0;
+        }
+        GLES20.glAttachShader(programObjectId, vertexShaderId);
+        GLES20.glAttachShader(programObjectId, fragmentShaderId);
+        GLES20.glLinkProgram(programObjectId);
+        final int[] linkStatus = new int[1];
+        GLES20.glGetProgramiv(programObjectId, GLES20.GL_LINK_STATUS, linkStatus, 0);
+        if(linkStatus[0] == 0){
+            GLES20.glDeleteProgram(programObjectId);
+            return 0;
+        }
+        return programObjectId;
+    }
+
 
     public int compileVertextShader(String shaderCode){
         return compileShader(GLES20.GL_VERTEX_SHADER, shaderCode);
