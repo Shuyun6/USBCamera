@@ -157,6 +157,7 @@ public class GLHelper {
 
     public void swapBuffer(){
         egl10.eglSwapBuffers(eglDisplay, eglSurface);
+
     }
 
     public int genTexture(){

@@ -9,7 +9,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.TextureView;
 
 import java.nio.ByteBuffer;
 
@@ -28,24 +27,16 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, R
     private int winWidth = 0;
     private int winHeight = 0;
     private Rect rect;
-    private float rate;
-    private boolean m_stop = false;
     private int index = 0;
-    private int index1 = 0;
     private byte[] data;
-    private byte[] mdata1;
     private byte[] rgbData;
-    private byte[] nv21Data;
-    private byte[] yuv420;
     private ByteBuffer imageBuffer;
-    private static Bitmap convertBmp = null;
     private Handler handler;
     private int displayOrientation = 0;
     private boolean startPreview = false;
     private boolean isMirror = false;
     private Context context;
     private boolean isViewCreated = false;
-    private TextureView ttv;
 
     private USBCamera usbCamera;
 
@@ -54,13 +45,11 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, R
         this.context = context;
         usbCamera = new USBCamera();
         handler = new Handler();
-        this.holder1 = getHolder();
+        holder1 = getHolder();
         holder1.addCallback(this);
 
         data = new byte[IMG_WIDTH * IMG_HEIGHT * 2];
         rgbData = new byte[IMG_WIDTH * IMG_HEIGHT * 4];
-        nv21Data = new byte[IMG_WIDTH * IMG_HEIGHT * 2];
-        yuv420 = new byte[IMG_WIDTH * IMG_HEIGHT * 2];
 
     }
 
@@ -97,7 +86,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, R
     public void surfaceDestroyed(SurfaceHolder holder) {
         isStop = true;
         release();
-        release();
     }
 
     public void release(){
@@ -115,17 +103,13 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, R
         }
         holder1 = null;
         data = null;
-        mdata1 = null;
         rgbData = null;
-        nv21Data = null;
-        yuv420 = null;
         winWidth = 0;
         winHeight = 0;
     }
 
     @Override
     public void run() {
-        Log.e("test", "isCameraExist "+isCameraExist);
         while(isCameraExist){
             if(0 == winWidth){
                 winWidth = getWidth();
@@ -142,11 +126,8 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, R
             if(index < 0){
                 break;
             }
-//            yuvTonv21(data, nv21Data, IMG_WIDTH, IMG_HEIGHT);
-            int res = usbCamera.yuv2rgb(data, rgbData, IMG_WIDTH, IMG_HEIGHT);
-            Log.e("test", "res yuv2rgb "+res);
-            res = usbCamera.queueBuffer(index);
-            Log.e("test", "res queueBuffer "+res);
+            usbCamera.yuv2rgb(data, rgbData, IMG_WIDTH, IMG_HEIGHT);
+            usbCamera.queueBuffer(index);
             if(!isViewCreated){
                 Log.e("test", "res isCreated "+isViewCreated);
                 return;
@@ -159,10 +140,8 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, R
                         bitmap = Bitmap.createBitmap(IMG_WIDTH, IMG_HEIGHT,
                                 Bitmap.Config.RGB_565);
                         bitmap.copyPixelsFromBuffer(imageBuffer);
-                        Log.e("test", "res bitmap "+bitmap.getByteCount());
                         Canvas canvas = holder1.lockCanvas();
                         if(null != canvas){
-                            Log.e("test", "res canvas "+canvas);
                             canvas.drawBitmap(bitmap, null, rect, null);
                             holder1.unlockCanvasAndPost(canvas);
                         }
