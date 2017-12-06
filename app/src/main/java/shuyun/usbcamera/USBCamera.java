@@ -34,7 +34,7 @@ public class USBCamera{
 
     public native int yuv422To420p(byte[] yuv422, byte[] yuv420p, int width, int height);
 
-    public native int yuvTonv21(byte[] yuv422, byte[] nv21, int width, int height);
+    public native int yuv2nv21(byte[] yuv422, byte[] nv21, int width, int height);
 
     public native int mirror(byte[] nv21 ,int destWidth , int destHeight , int SrcWidth , int SrcHeight );
 
