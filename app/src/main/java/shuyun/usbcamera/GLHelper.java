@@ -24,7 +24,6 @@ import static android.opengl.GLES20.GL_COLOR_ATTACHMENT0;
 import static android.opengl.GLES20.GL_DEPTH_ATTACHMENT;
 import static android.opengl.GLES20.GL_DEPTH_COMPONENT16;
 import static android.opengl.GLES20.GL_FRAMEBUFFER;
-import static android.opengl.GLES20.GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT;
 import static android.opengl.GLES20.GL_RENDERBUFFER;
 import static android.opengl.GLES20.GL_RGB;
 import static android.opengl.GLES20.GL_TEXTURE_2D;
@@ -34,14 +33,11 @@ import static android.opengl.GLES20.GL_UNSIGNED_BYTE;
 import static android.opengl.GLES20.glBindFramebuffer;
 import static android.opengl.GLES20.glBindRenderbuffer;
 import static android.opengl.GLES20.glBindTexture;
-import static android.opengl.GLES20.glCheckFramebufferStatus;
 import static android.opengl.GLES20.glFramebufferRenderbuffer;
 import static android.opengl.GLES20.glFramebufferTexture2D;
 import static android.opengl.GLES20.glGenFramebuffers;
 import static android.opengl.GLES20.glGenRenderbuffers;
 import static android.opengl.GLES20.glGenTextures;
-import static android.opengl.GLES20.glGetError;
-import static android.opengl.GLES20.glLinkProgram;
 import static android.opengl.GLES20.glRenderbufferStorage;
 import static android.opengl.GLES20.glTexImage2D;
 import static android.opengl.GLES20.glViewport;
@@ -175,7 +171,8 @@ public class GLHelper {
         int program = linkProgram(vertextId, fragmentId);
         return program;
     }
-    public static int linkProgram(int vertexShaderId, int fragmentShaderId){
+
+    public int linkProgram(int vertexShaderId, int fragmentShaderId){
         final int programObjectId = GLES20.glCreateProgram();
         if(programObjectId == 0){
             return 0;
@@ -191,7 +188,6 @@ public class GLHelper {
         }
         return programObjectId;
     }
-
 
     public int compileVertextShader(String shaderCode){
         return compileShader(GLES20.GL_VERTEX_SHADER, shaderCode);
