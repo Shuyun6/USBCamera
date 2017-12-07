@@ -282,7 +282,7 @@ Java_shuyun_usbcamera_USBCamera_yuv422To420p(JNIEnv *env, jclass type, jbyteArra
 }
 
 JNIEXPORT jint JNICALL
-Java_shuyun_usbcamera_USBCamera_yuvTonv21(JNIEnv *env, jclass type, jbyteArray yuv422_,
+Java_shuyun_usbcamera_USBCamera_yuv2nv21(JNIEnv *env, jclass type, jbyteArray yuv422_,
                                           jbyteArray nv21_, jint width, jint height) {
     jbyte *yuv422 = (*env)->GetByteArrayElements(env, yuv422_, NULL);
     jbyte *nv21 = (*env)->GetByteArrayElements(env, nv21_, NULL);
