@@ -1,7 +1,6 @@
 package shuyun.usbcamera;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.os.Handler;
 import android.util.Log;
@@ -17,7 +16,6 @@ import static android.opengl.GLES20.GL_FLOAT;
 import static android.opengl.GLES20.GL_LINEAR;
 import static android.opengl.GLES20.GL_LUMINANCE;
 import static android.opengl.GLES20.GL_LUMINANCE_ALPHA;
-import static android.opengl.GLES20.GL_RGB;
 import static android.opengl.GLES20.GL_TEXTURE0;
 import static android.opengl.GLES20.GL_TEXTURE1;
 import static android.opengl.GLES20.GL_TEXTURE2;
@@ -84,7 +82,6 @@ public class CameraRender implements TextureView.SurfaceTextureListener {
     private int texture_Y, texture_UV;
     private USBCamera usbCamera;
     private boolean isPreviewing;
-    private Bitmap bitmap;
     private ExecutorService pool;
     private Handler handler;
 
@@ -98,9 +95,9 @@ public class CameraRender implements TextureView.SurfaceTextureListener {
 
         texture_Y = glHelper.genTexture();
         texture_UV = glHelper.genTexture();
-//        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.image);
-        pool = newCachedThreadPool();
+
         handler = new Handler();
+        pool = newCachedThreadPool();
     }
 
     private void printError(int index){
@@ -125,7 +122,6 @@ public class CameraRender implements TextureView.SurfaceTextureListener {
         glUseProgram(program_buffer);
         glBindTexture(GL_TEXTURE_2D, texture_Y);
         glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, buffer_width, buffer_height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, buffer_y);
-//        GLUtils.texImage2D(GL_TEXTURE_2D, 0, bitmap, 0);
         glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
         glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
         glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
@@ -223,7 +219,7 @@ public class CameraRender implements TextureView.SurfaceTextureListener {
                 .order(ByteOrder.nativeOrder());
         buffer_uv = ByteBuffer.allocateDirect(buffer_width * buffer_height * 4)
                 .order(ByteOrder.nativeOrder());
-//
+
         glHelper.setDisplaySize(width, height);
         glHelper.initEGL(surfaceTexture);
         makeBufferData();

@@ -14,6 +14,7 @@ import java.nio.ByteBuffer;
 
 /**
  * Created by Shuyun on 2017/10/25 0025.
+ * Attach with bitmap, low performance and hard to create filter
  */
 
 public class CameraView extends SurfaceView implements SurfaceHolder.Callback, Runnable{
