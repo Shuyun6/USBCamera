@@ -29,6 +29,11 @@
             android:layout_height="wrap_content"
             android:text="camera2"
             android:id="@+id/bt_camera2"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="camera3"
+            android:id="@+id/bt_camera3"/>
     </LinearLayout>
 
 

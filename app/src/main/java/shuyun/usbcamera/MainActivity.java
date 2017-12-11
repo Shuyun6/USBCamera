@@ -7,6 +7,7 @@ import android.view.View;
 
 import shuyun.usbcamera.activity.Activity1;
 import shuyun.usbcamera.activity.Activity2;
+import shuyun.usbcamera.activity.Activity3;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Activity2.class));
+            }
+        });
+        findViewById(R.id.bt_camera3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Activity3.class));
             }
         });
     }

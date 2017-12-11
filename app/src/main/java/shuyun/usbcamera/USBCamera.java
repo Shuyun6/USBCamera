@@ -1,6 +1,8 @@
 package shuyun.usbcamera;
 
 /**
+ * Open USB camera by JNI, convert and stream via FFmpeg
+ *
  * Created by Shuyun on 2017/10/19 0019.
  */
 
