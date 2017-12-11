@@ -1,0 +1,577 @@
+[
+    {
+        "outputFile": "J:\\USBCamera\\common\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ja\\values-ja.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 53,
+                    "endOffset": 154
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\color_picker.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1262,
+                        "endColumn": 53,
+                        "endOffset": 1311
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 159,
+                    "endColumn": 89,
+                    "endOffset": 244
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\color_picker.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 851,
+                        "endColumn": 89,
+                        "endOffset": 936
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 249,
+                    "endColumn": 50,
+                    "endOffset": 295
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\color_picker.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1210,
+                        "endColumn": 50,
+                        "endOffset": 1256
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 300,
+                    "endColumn": 120,
+                    "endOffset": 416
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\color_picker.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 942,
+                        "endColumn": 124,
+                        "endOffset": 1062
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 421,
+                    "endColumn": 136,
+                    "endOffset": 553
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\color_picker.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1068,
+                        "endColumn": 140,
+                        "endOffset": 1204
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 558,
+                    "endColumn": 71,
+                    "endOffset": 625
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 1,
+                        "startOffset": 143,
+                        "endColumn": 68,
+                        "endOffset": 210
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 630,
+                    "endColumn": 83,
+                    "endOffset": 709
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 1,
+                        "startOffset": 213,
+                        "endColumn": 80,
+                        "endOffset": 292
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 714,
+                    "endColumn": 84,
+                    "endOffset": 794
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 1,
+                        "startOffset": 295,
+                        "endColumn": 81,
+                        "endOffset": 375
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 799,
+                    "endColumn": 83,
+                    "endOffset": 878
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 1,
+                        "startOffset": 378,
+                        "endColumn": 80,
+                        "endOffset": 457
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 883,
+                    "endColumn": 84,
+                    "endOffset": 963
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 1,
+                        "startOffset": 460,
+                        "endColumn": 81,
+                        "endOffset": 540
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 968,
+                    "endColumn": 66,
+                    "endOffset": 1030
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 1,
+                        "startOffset": 1660,
+                        "endColumn": 63,
+                        "endOffset": 1722
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1035,
+                    "endColumn": 80,
+                    "endOffset": 1111
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 1,
+                        "startOffset": 1725,
+                        "endColumn": 77,
+                        "endOffset": 1801
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1116,
+                    "endColumn": 89,
+                    "endOffset": 1201
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 1,
+                        "startOffset": 1804,
+                        "endColumn": 86,
+                        "endOffset": 1889
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1206,
+                    "endColumn": 72,
+                    "endOffset": 1274
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 1,
+                        "startOffset": 1892,
+                        "endColumn": 69,
+                        "endOffset": 1960
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1279,
+                    "endColumn": 87,
+                    "endOffset": 1362
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 1,
+                        "startOffset": 598,
+                        "endColumn": 84,
+                        "endOffset": 681
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1367,
+                    "endColumn": 93,
+                    "endOffset": 1456
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 1,
+                        "startOffset": 867,
+                        "endColumn": 90,
+                        "endOffset": 956
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1461,
+                    "endColumn": 92,
+                    "endOffset": 1549
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 1,
+                        "startOffset": 684,
+                        "endColumn": 89,
+                        "endOffset": 772
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1554,
+                    "endColumn": 93,
+                    "endOffset": 1643
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 1,
+                        "startOffset": 775,
+                        "endColumn": 90,
+                        "endOffset": 864
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1648,
+                    "endColumn": 67,
+                    "endOffset": 1711
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 1,
+                        "startOffset": 1341,
+                        "endColumn": 64,
+                        "endOffset": 1404
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1716,
+                    "endColumn": 82,
+                    "endOffset": 1794
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 1,
+                        "startOffset": 1552,
+                        "endColumn": 79,
+                        "endOffset": 1630
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1799,
+                    "endColumn": 73,
+                    "endOffset": 1868
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 1,
+                        "startOffset": 1407,
+                        "endColumn": 70,
+                        "endOffset": 1476
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1873,
+                    "endColumn": 74,
+                    "endOffset": 1943
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 1,
+                        "startOffset": 1479,
+                        "endColumn": 71,
+                        "endOffset": 1549
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1948,
+                    "endColumn": 68,
+                    "endOffset": 2012
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 1,
+                        "startOffset": 998,
+                        "endColumn": 65,
+                        "endOffset": 1062
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 2017,
+                    "endColumn": 81,
+                    "endOffset": 2094
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 1,
+                        "startOffset": 1237,
+                        "endColumn": 78,
+                        "endOffset": 1314
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 2099,
+                    "endColumn": 87,
+                    "endOffset": 2182
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 1,
+                        "startOffset": 1065,
+                        "endColumn": 84,
+                        "endOffset": 1148
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 2187,
+                    "endColumn": 87,
+                    "endOffset": 2270
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 1,
+                        "startOffset": 1151,
+                        "endColumn": 84,
+                        "endOffset": 1234
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 2275,
+                    "endColumn": 55,
+                    "endOffset": 2326
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings_permissions.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 1,
+                        "startOffset": 54,
+                        "endColumn": 52,
+                        "endOffset": 105
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 2331,
+                    "endColumn": 47,
+                    "endOffset": 2374
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 1,
+                        "startOffset": 99,
+                        "endColumn": 44,
+                        "endOffset": 142
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 2379,
+                    "endColumn": 44,
+                    "endOffset": 2419
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 1,
+                        "startOffset": 145,
+                        "endColumn": 41,
+                        "endOffset": 185
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 31,
+                    "startColumn": 4,
+                    "startOffset": 2424,
+                    "endColumn": 46,
+                    "endOffset": 2466
+                },
+                "from": {
+                    "file": "J:\\USBCamera\\common\\src\\main\\res\\values-ja\\strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 1,
+                        "startOffset": 54,
+                        "endColumn": 43,
+                        "endOffset": 96
+                    }
+                }
+            }
+        ]
+    }
+]

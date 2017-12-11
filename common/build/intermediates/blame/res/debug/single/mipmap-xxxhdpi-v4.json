@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4\\ic_color_circle.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\mipmap-xxxhdpi\\ic_color_circle.png"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4\\ic_frame_cross_circle.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\mipmap-xxxhdpi\\ic_frame_cross_circle.png"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4\\ic_transparent.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\mipmap-xxxhdpi\\ic_transparent.png"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4\\ic_frame_cross.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\mipmap-xxxhdpi\\ic_frame_cross.png"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4\\ic_frame_cross_quarter.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\mipmap-xxxhdpi\\ic_frame_cross_quarter.png"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4\\ic_frame_circle.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\mipmap-xxxhdpi\\ic_frame_circle.png"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4\\ic_frame_frame.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\mipmap-xxxhdpi\\ic_frame_frame.png"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4\\ic_frame_cross_circle2.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\mipmap-xxxhdpi\\ic_frame_cross_circle2.png"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi-v4\\ic_frame_circle_2.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\mipmap-xxxhdpi\\ic_frame_circle_2.png"
+    }
+]

@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\frame.9.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\frame.9.png"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\toggle_button_base.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\toggle_button_base.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\btn_repeat_shutter_recording.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\btn_repeat_shutter_recording.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\btn_shutter_video_recording.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\btn_shutter_video_recording.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\toggle_slide.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\toggle_slide.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\transparent_rect.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\transparent_rect.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\border_black.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\border_black.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\border.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\border.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\quater_clear_rect.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\quater_clear_rect.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\toggle.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\toggle.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\border_gray.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\border_gray.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\recordingtime.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\recordingtime.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\btn_new_shutter.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\btn_new_shutter.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\mask_circle.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\mask_circle.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\btn_new_shutter_video.xml",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\btn_new_shutter_video.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\release\\drawable\\frame_cross.9.png",
+        "source": "J:\\USBCamera\\common\\src\\main\\res\\drawable\\frame_cross.9.png"
+    }
+]

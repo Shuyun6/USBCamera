@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\color_picker.xml",
+        "source": "J:\\USBCamera\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\color_picker.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\item_picker.xml",
+        "source": "J:\\USBCamera\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\item_picker.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\view_frame_selector.xml",
+        "source": "J:\\USBCamera\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\view_frame_selector.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\seekbar_preference.xml",
+        "source": "J:\\USBCamera\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\seekbar_preference.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\color_picker_dialog.xml",
+        "source": "J:\\USBCamera\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\color_picker_dialog.xml"
+    },
+    {
+        "merged": "J:\\USBCamera\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\list_item_bluetooth_device_info.xml",
+        "source": "J:\\USBCamera\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\list_item_bluetooth_device_info.xml"
+    }
+]
