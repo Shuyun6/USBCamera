@@ -122,7 +122,7 @@ public class USBCameraManager{
         this.cameraView = cameraView;
         cameraView.setAspectRatio(previewWidth / (float) previewHeight);
         mCameraHandler = UVCCameraHandler.createHandler(mActivity, cameraView, ENCODER_TYPE,
-                previewWidth,previewHeight,PREVIEW_FORMAT);
+                previewWidth, previewHeight, PREVIEW_FORMAT);
     }
 
     public void updateResolution(int width, int height, final OnPreviewListener mPreviewListener){
