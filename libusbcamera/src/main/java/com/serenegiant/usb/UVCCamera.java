@@ -114,6 +114,7 @@ public class UVCCamera {
 	public static final int STATUS_ATTRIBUTE_UNKNOWN = 0xff;
 
 	private static boolean isLoaded;
+
 	static {
 		if (!isLoaded) {
 			System.loadLibrary("jpeg-turbo1500");
@@ -173,7 +174,7 @@ public class UVCCamera {
     protected int mAnalogVideoLockStateMin, mAnalogVideoLockStateMax, mAnalogVideoLockStateDef;
     // until here
     /**
-     * the sonctructor of this class should be call within the thread that has a looper
+     * the constructor of this class should be call within the thread that has a looper
      * (UI thread or a thread that called Looper.prepare)
      */
     public UVCCamera() {
@@ -197,7 +198,7 @@ public class UVCCamera {
 				mCtrlBlock.getBusNum(),
 				mCtrlBlock.getDevNum(),
 				getUSBFSName(mCtrlBlock));
-			sb.append("调用nativeConnect返回值："+result);
+			sb.append("nativeConnect："+result);
 //			long id_camera, int venderId, int productId, int fileDescriptor, int busNum, int devAddr, String usbfs
 		} catch (final Exception e) {
 			Log.w(TAG, e);
