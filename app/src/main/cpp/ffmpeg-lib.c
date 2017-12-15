@@ -38,6 +38,12 @@ struct fimc_buffer *buffers = NULL;
 struct v4l2_buffer v4l2_buf;
 
 JNIEXPORT jint JNICALL
+/**
+ * open device by Android native interface
+ * @param env
+ * @param type
+ * @return
+ */
 Java_shuyun_usbcamera_USBCamera_openCamera(JNIEnv *env, jclass type) {
     // TODO
     char device_name[16];
@@ -87,6 +93,15 @@ JNIEXPORT jint JNICALL
 }
 
 JNIEXPORT jint JNICALL
+/**
+ * prepare a buffer for data from device
+ * @param env
+ * @param type
+ * @param width
+ * @param height
+ * @param number buffer array index count
+ * @return
+ */
 Java_shuyun_usbcamera_USBCamera_prepare(JNIEnv *env, jclass type, jint width, jint height,
                                         jint number) {
     // TODO
@@ -149,6 +164,12 @@ Java_shuyun_usbcamera_USBCamera_prepare(JNIEnv *env, jclass type, jint width, ji
 }
 
 JNIEXPORT jint JNICALL
+/**
+ * open a stream for buffer from devcie
+ * @param env
+ * @param type
+ * @return
+ */
 Java_shuyun_usbcamera_USBCamera_streamOn(JNIEnv *env, jclass type) {
     // TODO
     int res;
@@ -185,6 +206,13 @@ Java_shuyun_usbcamera_USBCamera_streamOff(JNIEnv *env, jclass type) {
 }
 
 JNIEXPORT jint JNICALL
+/**
+ * copy data from v412_buf to data_
+ * @param env
+ * @param type
+ * @param data_
+ * @return
+ */
 Java_shuyun_usbcamera_USBCamera_frameBuffer(JNIEnv *env, jclass type, jbyteArray data_) {
     jbyte *data = (*env)->GetByteArrayElements(env, data_, NULL);
     // TODO
@@ -271,7 +299,7 @@ Java_shuyun_usbcamera_USBCamera_yuv422To420p(JNIEnv *env, jclass type, jbyteArra
     ypicture=av_frame_alloc();
     avpicture_fill((AVPicture *) rpicture, (uint8_t *)yuv420p, AV_PIX_FMT_YUV420P, width, height);
     avpicture_fill((AVPicture *) ypicture, (uint8_t *)yuv422, AV_PIX_FMT_YUYV422, mwidth, mheight);
-    swsctx = sws_getContext(mwidth,mheight, AV_PIX_FMT_YUYV422,	width, height,AV_PIX_FMT_YUV420P, SWS_BICUBIC, NULL, NULL, NULL);
+    swsctx = sws_getContext(mwidth, mheight, AV_PIX_FMT_YUYV422,	width, height, AV_PIX_FMT_YUV420P, SWS_BICUBIC, NULL, NULL, NULL);
     sws_scale(swsctx,(const uint8_t* const*)ypicture->data,ypicture->linesize,0,mheight,rpicture->data,rpicture->linesize);
     sws_freeContext(swsctx);
     av_free(rpicture);
@@ -293,9 +321,9 @@ Java_shuyun_usbcamera_USBCamera_yuv2nv21(JNIEnv *env, jclass type, jbyteArray yu
     rpicture=av_frame_alloc();
     ypicture=av_frame_alloc();
     avpicture_fill((AVPicture *) rpicture, (uint8_t *)nv21, AV_PIX_FMT_NV21, width, height);
-    avpicture_fill((AVPicture *) ypicture, (uint8_t *)yuv422, AV_PIX_FMT_YUYV422,mwidth,mheight);
-    swsctx = sws_getContext(mwidth,mheight, AV_PIX_FMT_YUYV422,	width, height, AV_PIX_FMT_NV21, SWS_BICUBIC, NULL, NULL, NULL);
-    sws_scale(swsctx,(const uint8_t* const*)ypicture->data,ypicture->linesize,0,mheight,rpicture->data,rpicture->linesize);
+    avpicture_fill((AVPicture *) ypicture, (uint8_t *)yuv422, AV_PIX_FMT_YUYV422, mwidth, mheight);
+    swsctx = sws_getContext(mwidth, mheight, AV_PIX_FMT_YUYV422, width, height, AV_PIX_FMT_NV21, SWS_BICUBIC, NULL, NULL, NULL);
+    sws_scale(swsctx,(const uint8_t* const*)ypicture->data, ypicture->linesize, 0, mheight, rpicture->data, rpicture->linesize);
     sws_freeContext(swsctx);
     av_free(rpicture);
     av_free(ypicture);
