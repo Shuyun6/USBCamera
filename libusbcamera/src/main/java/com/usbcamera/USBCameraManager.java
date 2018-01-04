@@ -135,9 +135,9 @@ public class USBCameraManager{
             mCameraHandler.release();
             mCameraHandler = null;
         }
-        cameraView.setAspectRatio(previewWidth / (float)previewHeight);
-        mCameraHandler = UVCCameraHandler.createHandler(mActivity,cameraView,ENCODER_TYPE,
-                previewWidth,previewHeight,PREVIEW_FORMAT);
+        cameraView.setAspectRatio(previewWidth / (float) previewHeight);
+        mCameraHandler = UVCCameraHandler.createHandler(mActivity, cameraView, ENCODER_TYPE,
+                previewWidth, previewHeight, PREVIEW_FORMAT);
         openCamera(mCtrlBlock);
         startPreview(cameraView, new AbstractUVCCameraHandler.OnPreViewResultListener() {
             @Override
