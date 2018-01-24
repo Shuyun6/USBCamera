@@ -1,1 +1,1 @@
-include ':app', ':common', ':libusbcamera'
+include ':app', ':common', ':libusbcamera', ':pupilla'
