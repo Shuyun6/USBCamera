@@ -3,7 +3,7 @@ include $(CLEAR_VARS)
 
 include $(PROJ_PATH)/pupilla/Android.mk
 
-include $(PROJ_PATH)/libjpeg-turbo-1.5.0/Android.mk
+#include $(PROJ_PATH)/libjpeg-turbo-1.5.0/Android.mk
 
 include $(PROJ_PATH)/libusb/android/jni/Android.mk
 
