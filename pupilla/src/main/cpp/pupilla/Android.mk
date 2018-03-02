@@ -1,12 +1,6 @@
-######################################################################
-# Make shared library libUVCCamera.so
-######################################################################
 LOCAL_PATH	:= $(call my-dir)
 include $(CLEAR_VARS)
 
-######################################################################
-# Make shared library libUVCCamera.so
-######################################################################
 CFLAGS := -Werror
 
 #添加头文件
@@ -29,9 +23,7 @@ LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -ldl
 LOCAL_LDLIBS += -llog
 LOCAL_LDLIBS += -landroid
 
-#引入所依赖的共享库
-#
-LOCAL_SHARED_LIBRARIES += usb100 uvc
+LOCAL_SHARED_LIBRARIES += usb uvc
 
 LOCAL_ARM_MODE := arm
 

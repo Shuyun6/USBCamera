@@ -1245,10 +1245,6 @@ uvc_error_t uvc_yuyv2iyuv420SP(uvc_frame_t *in, uvc_frame_t *out) {
 uvc_error_t uvc_any2rgb565(uvc_frame_t *in, uvc_frame_t *out) {
 
 	switch (in->frame_format) {
-#ifdef LIBUVC_HAS_JPEG
-	case UVC_FRAME_FORMAT_MJPEG:
-		return uvc_mjpeg2rgb565(in, out);
-#endif
 	case UVC_FRAME_FORMAT_YUYV:
 		return uvc_yuyv2rgb565(in, out);
 	case UVC_FRAME_FORMAT_UYVY:
@@ -1271,10 +1267,6 @@ uvc_error_t uvc_any2rgb565(uvc_frame_t *in, uvc_frame_t *out) {
 uvc_error_t uvc_any2rgb(uvc_frame_t *in, uvc_frame_t *out) {
 
 	switch (in->frame_format) {
-#ifdef LIBUVC_HAS_JPEG
-	case UVC_FRAME_FORMAT_MJPEG:
-		return uvc_mjpeg2rgb(in, out);
-#endif
 	case UVC_FRAME_FORMAT_YUYV:
 		return uvc_yuyv2rgb(in, out);
 	case UVC_FRAME_FORMAT_UYVY:
@@ -1295,10 +1287,6 @@ uvc_error_t uvc_any2rgb(uvc_frame_t *in, uvc_frame_t *out) {
 uvc_error_t uvc_any2bgr(uvc_frame_t *in, uvc_frame_t *out) {
 
 	switch (in->frame_format) {
-#ifdef LIBUVC_HAS_JPEG
-	case UVC_FRAME_FORMAT_MJPEG:
-		return uvc_mjpeg2bgr(in, out);
-#endif
 	case UVC_FRAME_FORMAT_YUYV:
 		return uvc_yuyv2bgr(in, out);
 	case UVC_FRAME_FORMAT_UYVY:
@@ -1319,10 +1307,6 @@ uvc_error_t uvc_any2bgr(uvc_frame_t *in, uvc_frame_t *out) {
 uvc_error_t uvc_any2rgbx(uvc_frame_t *in, uvc_frame_t *out) {
 
 	switch (in->frame_format) {
-#ifdef LIBUVC_HAS_JPEG
-	case UVC_FRAME_FORMAT_MJPEG:
-		return uvc_mjpeg2rgbx(in, out);
-#endif
 	case UVC_FRAME_FORMAT_YUYV:
 		return uvc_yuyv2rgbx(in, out);
 	case UVC_FRAME_FORMAT_UYVY:
@@ -1345,10 +1329,6 @@ uvc_error_t uvc_any2rgbx(uvc_frame_t *in, uvc_frame_t *out) {
 uvc_error_t uvc_any2yuyv(uvc_frame_t *in, uvc_frame_t *out) {
 
 	switch (in->frame_format) {
-#ifdef LIBUVC_HAS_JPEG
-	case UVC_FRAME_FORMAT_MJPEG:
-		return uvc_mjpeg2yuyv(in, out);
-#endif
 	case UVC_FRAME_FORMAT_YUYV:
 		return uvc_duplicate_frame(in, out);
 	default:

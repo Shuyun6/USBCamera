@@ -1,7 +1,4 @@
-######################################################################
-# libusb.a
-######################################################################
-LOCAL_PATH			:= $(call my-dir)/../..
+LOCAL_PATH := $(call my-dir)/../..
 include $(CLEAR_VARS)
 
 # changed linux_usbfs.c => android_usbfs.c
@@ -31,26 +28,23 @@ LOCAL_EXPORT_C_INCLUDES := \
 	$(LOCAL_PATH)/ \
 	$(LOCAL_PATH)/libusb
 
-# add some flags
 LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%)
 LOCAL_CFLAGS += -DANDROID_NDK
 LOCAL_CFLAGS += -DLOG_NDEBUG
 LOCAL_CFLAGS += -DACCESS_RAW_DESCRIPTORS
 LOCAL_CFLAGS += -O3 -fstrict-aliasing -fprefetch-loop-arrays
 LOCAL_EXPORT_LDLIBS += -llog
+LOCAL_LDLIBS += -llog
 LOCAL_ARM_MODE := arm
 
-LOCAL_MODULE := libusb100_static
-include $(BUILD_STATIC_LIBRARY)
+#LOCAL_MODULE := libusb100_static
+#include $(BUILD_STATIC_LIBRARY)
 
-######################################################################
-# libusb100.so
-######################################################################
-include $(CLEAR_VARS)
-LOCAL_MODULE_TAGS := optional
-LOCAL_EXPORT_LDLIBS += -llog
+#include $(CLEAR_VARS)
+#LOCAL_MODULE_TAGS := optional
+#LOCAL_EXPORT_LDLIBS += -llog
 
-LOCAL_WHOLE_STATIC_LIBRARIES = libusb100_static
+#LOCAL_WHOLE_STATIC_LIBRARIES = libusb100_static
 
-LOCAL_MODULE := usb100
+LOCAL_MODULE := usb
 include $(BUILD_SHARED_LIBRARY)
