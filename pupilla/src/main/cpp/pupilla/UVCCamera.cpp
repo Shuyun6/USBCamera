@@ -4,49 +4,63 @@
 
 #include <malloc.h>
 #include <string.h>
+#include <unistd.h>
 #include "UVCCamera.h"
 
 UVCCamera::UVCCamera() {
-    fd = 0;
-    usbFS = NULL;
-    context = NULL;
-    device = NULL;
-    deviceHanlde = NULL;
-    preview = NULL;
-    ctrlSupports = 0;
-    PUSupports = 0;
+    mFd = 0;
+    mUsbFS = NULL;
+    mContext = NULL;
+    mDevice = NULL;
+    mDeviceHanlde = NULL;
+    mPreview = NULL;
+    mCtrlSupports = 0;
+    mPUSupports = 0;
 
 }
 
 UVCCamera::~UVCCamera() {
     release();
-    if (context) {
+    if (mContext) {
 //        uvc_exit(context);
-        context = NULL;
+        mContext = NULL;
     }
-    if (usbFS) {
-        free(usbFS);
-        usbFS = NULL;
+    if (mUsbFS) {
+        free(mUsbFS);
+        mUsbFS = NULL;
     }
 }
 
 void UVCCamera::clearParameters() {
-    ctrlSupports = 0;
-    PUSupports = 0;
+    mCtrlSupports = 0;
+    mPUSupports = 0;
 }
 
 int UVCCamera::connect(int vid, int pid, int fd, int bus, int addr, char *usbfs) {
 
     uvc_error_t result = UVC_ERROR_BUSY;
-    if (!deviceHanlde && fd) {
-        if (usbfs) {
-            free(usbfs);
+    if (!mDeviceHanlde && fd) {
+        if (mUsbFS) {
+            free(mUsbFS);
         }
-        usbFS = strdup(usbfs);
-        if (!context) {
-//            result = uvc_init(&context, NULL);//result ld error ??
-//            uvc_exit(context);
+        mUsbFS = strdup(usbfs);
+        if (!mContext) {
+            result = uvc_init2(&mContext, NULL, mUsbFS);
+            if (0 > result) {
+                return result;
+            }
         }
+        clearParameters();
+        fd = dup(fd);
+        result = uvc_get_device_with_fd(mContext, &mDevice, vid, pid, NULL, fd, bus, addr);
+        if (!result) {
+            result = uvc_open(mDevice, &mDeviceHanlde);
+            if (!result) {
+                mFd = fd;
+
+            }
+        }
+
     }
     return 1;
 

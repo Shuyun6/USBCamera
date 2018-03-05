@@ -6,7 +6,7 @@
 #ifndef USBCAMERA_UVCCAMERA_H
 #define USBCAMERA_UVCCAMERA_H
 
-#include "../libuvc/include/libuvc/libuvc.h"
+#include "libuvc/libuvc.h"
 #include "UVCPreview.h"
 #include <stdint.h>
 #include <android/native_window.h>
@@ -22,15 +22,15 @@ typedef struct control_value {
 
 class UVCCamera {
 
-    char *usbFS;
-    uvc_context_t *context;
-    int fd;
-    uvc_device_t *device;
-    uvc_device_handle_t *deviceHanlde;
+    char *mUsbFS;
+    uvc_context_t *mContext;
+    int mFd;
+    uvc_device_t *mDevice;
+    uvc_device_handle_t *mDeviceHanlde;
 
-    UVCPreview *preview;
-    uint64_t ctrlSupports;
-    uint64_t PUSupports;
+    UVCPreview *mPreview;
+    uint64_t mCtrlSupports;
+    uint64_t mPUSupports;
 
 public:
     UVCCamera();

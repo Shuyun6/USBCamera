@@ -22,6 +22,8 @@ LOCAL_ARM_MODE := arm
 LOCAL_SRC_FILES := \
 		pupilla.cpp \
 		UVCCamera.cpp \
+		UVCPreview.cpp \
+		utilbase.h \
 
 
 LOCAL_MODULE := pupilla
