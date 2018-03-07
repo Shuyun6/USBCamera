@@ -67,7 +67,7 @@ UVCPreview::~UVCPreview() {
 }
 
 /**
- * 在预览帧池中，初始化内存空间
+ * 在预览帧池中，并初始化内存空间
  * @param data_bytes
  */
 void UVCPreview::init_pool(size_t data_bytes) {
@@ -165,6 +165,9 @@ int UVCPreview::setFrameCallback(JNIEnv *env, jobject frame_callback_obj, int pi
     return 0;
 }
 
+/**
+ * 根据mPixelFormal计算callbackPixelBytes长度
+ */
 void UVCPreview::callbackPixelFormatChanged() {
     mFrameCallbackFunc = NULL;
     const size_t sz = requestWidth * requestHeight;
@@ -236,6 +239,10 @@ void UVCPreview::clearDisplay() {
     pthread_mutex_unlock(&preview_mutex);
 }
 
+/**
+ * 调用预览线程preview_thread_func
+ * @return
+ */
 int UVCPreview::startPreview() {
     int result = EXIT_FAILURE;
     if (!isRunning()) {
@@ -291,6 +298,11 @@ int UVCPreview::stopPreview() {
     return 0;
 }
 
+/**
+ * start preview thread
+ * @param args
+ * @return
+ */
 void *UVCPreview::preview_thread_func(void *args) {
     int result;
     UVCPreview *preview = reinterpret_cast<UVCPreview *>(args);
@@ -305,7 +317,7 @@ void *UVCPreview::preview_thread_func(void *args) {
 }
 
 /**
- * Get frame from frame pool or get an empty frame
+ * Get latest frame from frame pool or get an empty frame
  * @param data_bytes
  * @return
  */
@@ -334,6 +346,9 @@ void UVCPreview::clearPreviewFrame() {
     pthread_mutex_unlock(&preview_mutex);
 }
 
+/**
+ * 将captureQueue放入帧池
+ */
 void UVCPreview::clearCaptureFrame() {
     pthread_mutex_lock(&capture_mutex);
     {
@@ -344,6 +359,9 @@ void UVCPreview::clearCaptureFrame() {
     pthread_mutex_unlock(&capture_mutex);
 }
 
+/**
+ * 清空帧池
+ */
 void UVCPreview::clear_pool() {
     pthread_mutex_lock(&pool_mutex);
     {
@@ -356,6 +374,10 @@ void UVCPreview::clear_pool() {
     pthread_mutex_unlock(&pool_mutex);
 }
 
+/**
+ * 处理当前帧。如果帧池有位置则填入帧池，否则丢弃
+ * @param frame
+ */
 void UVCPreview::recycle_frame(uvc_frame_t *frame) {
     pthread_mutex_lock(&pool_mutex);
     if ((mFramePool.size() < FRAME_POOL_SZ)) {
@@ -368,6 +390,11 @@ void UVCPreview::recycle_frame(uvc_frame_t *frame) {
     }
 }
 
+/**
+ * 从摄像头中获取一帧，并放到帧数组中
+ * @param frame
+ * @param args
+ */
 void UVCPreview::uvc_preview_frame_callback(uvc_frame_t *frame, void *args) {
     UVCPreview *preview = reinterpret_cast<UVCPreview *>(args);
     if (!preview->isRunning() || !frame || !frame->frame_format || !frame->data || !frame->data_bytes){
@@ -378,10 +405,13 @@ void UVCPreview::uvc_preview_frame_callback(uvc_frame_t *frame, void *args) {
         return;
     }
     if (preview->isRunning()) {
+        //获取一个等长的空帧
         uvc_frame_t *copy = preview->get_frame(frame->data_bytes);
         if (!copy) {
             return;
         }
+        //复制帧
+        //SUCCESS = 0
         uvc_error_t ret = uvc_duplicate_frame(frame, copy);
         if (ret) {
             preview->recycle_frame(copy);
@@ -391,6 +421,10 @@ void UVCPreview::uvc_preview_frame_callback(uvc_frame_t *frame, void *args) {
     }
 }
 
+/**
+ * 将帧放入帧数组中
+ * @param frame
+ */
 void UVCPreview::addPreviewFrame(uvc_frame_t *frame) {
     pthread_mutex_lock(&preview_mutex);
     if (isRunning() && (previewFrames.size() < MAX_FRAME)) {
@@ -404,6 +438,10 @@ void UVCPreview::addPreviewFrame(uvc_frame_t *frame) {
     }
 }
 
+/**
+ * 等待同步信号，然后从帧数组中移出一帧
+ * @return
+ */
 uvc_frame_t *UVCPreview::waitPreviewFrame() {
     uvc_frame_t *frame = NULL;
     pthread_mutex_lock(&preview_mutex);
@@ -419,6 +457,11 @@ uvc_frame_t *UVCPreview::waitPreviewFrame() {
     return frame;
 }
 
+/**
+ * prepare for preview, mainly set the size of window
+ * @param ctrl
+ * @return
+ */
 int UVCPreview::prepare_preview(uvc_stream_ctrl_t *ctrl) {
     uvc_error_t result;
     int temp = requestMode;
@@ -454,7 +497,11 @@ int UVCPreview::prepare_preview(uvc_stream_ctrl_t *ctrl) {
     }
     return result;
 }
-//
+
+/**
+ *设置uvc出流属性，然后调用捕获线程，并一直循环获取帧，然后绘制
+ * @param ctrl
+ */
 void UVCPreview::do_preview(uvc_stream_ctrl_t *ctrl) {
     uvc_frame_t *frame = NULL;
     //get stream in here, UVC_SUCCESS = 0
@@ -463,6 +510,7 @@ void UVCPreview::do_preview(uvc_stream_ctrl_t *ctrl) {
     if (!result) {
         //success
         clearPreviewFrame();
+        //在这里开始预览了
         pthread_create(&capture_thread, NULL, capture_thread_func, (void *)this);
         for (; isRunning();) {
             frame = waitPreviewFrame();
@@ -478,6 +526,15 @@ void UVCPreview::do_preview(uvc_stream_ctrl_t *ctrl) {
     }
 }
 
+/**
+ * Copy frame data to surface buffer for display
+ * @param src
+ * @param dest
+ * @param width
+ * @param height
+ * @param stride_src
+ * @param stride_dest
+ */
 static void copyFrame(const uint8_t *src, uint8_t *dest, const int width, int height, const int stride_src, const int stride_dest) {
     const int h8 = height % 8;
     for (int i = 0; i < h8; i++) {
@@ -504,11 +561,18 @@ static void copyFrame(const uint8_t *src, uint8_t *dest, const int width, int he
     }
 }
 
+/**
+ * preview frame from *frame to **window's buffer
+ * @param frame
+ * @param window
+ * @return
+ */
 int copyToSurface(uvc_frame_t *frame, ANativeWindow **window) {
     int result = 0;
     if (LIKELY(*window)) {
         ANativeWindow_Buffer buffer;
         if (LIKELY(ANativeWindow_lock(*window, &buffer, NULL) == 0)) {
+            //buffer is the output parameter
             // source = frame data
             const uint8_t *src = (uint8_t *)frame->data;
             const int src_w = frame->width * PREVIEW_PIXEL_BYTES;
@@ -533,6 +597,14 @@ int copyToSurface(uvc_frame_t *frame, ANativeWindow **window) {
     return result;
 }
 
+/**
+ * 调用copyToSurface将帧绘制到surface
+ * @param frame
+ * @param window
+ * @param convert_func
+ * @param pixcelBytes
+ * @return
+ */
 uvc_frame_t *UVCPreview::draw_preview_one(uvc_frame_t *frame, ANativeWindow **window, convFunc_t convert_func, int pixcelBytes) {
     int b = 0;
     pthread_mutex_lock(&preview_mutex);
@@ -543,11 +615,13 @@ uvc_frame_t *UVCPreview::draw_preview_one(uvc_frame_t *frame, ANativeWindow **wi
     if (LIKELY(b)) {
         uvc_frame_t *converted;
         if (convert_func) {
+            //初始化内存空间
             converted = get_frame(frame->width * frame->height * pixcelBytes);
             if LIKELY(converted) {
                 b = convert_func(frame, converted);
                 if (!b) {
                     pthread_mutex_lock(&preview_mutex);
+                    //draw to buffer
                     copyToSurface(converted, window);
                     pthread_mutex_unlock(&preview_mutex);
                 } else {
@@ -600,6 +674,9 @@ int UVCPreview::setCaptureDisplay(ANativeWindow *capture_window) {
     return 0;
 }
 
+/*
+ * 更新captureQueue的值，并唤醒capture_sync锁
+ */
 void UVCPreview::addCaptureFrame(uvc_frame_t *frame) {
     pthread_mutex_lock(&capture_mutex);
     if (LIKELY(isRunning())) {
@@ -632,9 +709,14 @@ uvc_frame_t *UVCPreview::waitCaptureFrame() {
     return frame;
 }
 
-void *UVCPreview::capture_thread_func(void *vptr_args) {
+/**
+ * 帧捕获线程
+ * @param args
+ * @return
+ */
+void *UVCPreview::capture_thread_func(void *args) {
     int result;
-    UVCPreview *preview = reinterpret_cast<UVCPreview *>(vptr_args);
+    UVCPreview *preview = reinterpret_cast<UVCPreview *>(args);
     if (LIKELY(preview)) {
         JavaVM *vm = getVM();
         JNIEnv *env;
@@ -648,6 +730,10 @@ void *UVCPreview::capture_thread_func(void *vptr_args) {
     pthread_exit(NULL);
 }
 
+/**
+ * 不停循环捕获
+ * @param env
+ */
 void UVCPreview::do_capture(JNIEnv *env) {
     clearCaptureFrame();
     callbackPixelFormatChanged();
@@ -668,19 +754,26 @@ void UVCPreview::do_capture_idle_loop(JNIEnv *env) {
     }
 }
 
+/**
+ * 获取捕获帧，转换格式并输出到窗口缓冲区，回调到java层
+ * @param env
+ */
 void UVCPreview::do_capture_surface(JNIEnv *env) {
     uvc_frame_t *frame = NULL;
     uvc_frame_t *converted = NULL;
     char *local_picture_path;
     for (; isRunning() && isCapturing() ;) {
+        //获取captureQueue对应的帧
         frame = waitCaptureFrame();
         if (frame) {
             // frame data is always YUYV format.
             if (isCapturing()) {
                 if (!converted) {
+                    //previewBytes = width * height * 4 (yuyv)
                     converted = get_frame(previewBytes);
                 }
                 if (converted) {
+                    //SUCCESS = 0
                     int b = uvc_any2rgbx(frame, converted);
                     if (!b) {
                         if (mCaptureWindow) {
@@ -701,6 +794,11 @@ void UVCPreview::do_capture_surface(JNIEnv *env) {
     }
 }
 
+/**
+ * 将*frame数据回调到java层
+ * @param env
+ * @param frame
+ */
 void UVCPreview::do_capture_callback(JNIEnv *env, uvc_frame_t *frame) {
     if (frame) {
         uvc_frame_t *callback_frame = frame;
@@ -710,6 +808,7 @@ void UVCPreview::do_capture_callback(JNIEnv *env, uvc_frame_t *frame) {
                 if (callback_frame) {
                     int b = mFrameCallbackFunc(frame, callback_frame);
                     recycle_frame(frame);
+                    //success = 0
                     if (b) {
                         goto SKIP;
                     }

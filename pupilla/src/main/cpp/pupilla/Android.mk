@@ -23,7 +23,6 @@ LOCAL_SRC_FILES := \
 		pupilla.cpp \
 		UVCCamera.cpp \
 		UVCPreview.cpp \
-		utilbase.h \
         utilbase.cpp \
 
 LOCAL_MODULE := pupilla
