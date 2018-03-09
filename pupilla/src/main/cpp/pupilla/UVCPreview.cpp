@@ -396,6 +396,7 @@ void UVCPreview::recycle_frame(uvc_frame_t *frame) {
  * @param args
  */
 void UVCPreview::uvc_preview_frame_callback(uvc_frame_t *frame, void *args) {
+    //预览中，不断低
     UVCPreview *preview = reinterpret_cast<UVCPreview *>(args);
     if (!preview->isRunning() || !frame || !frame->frame_format || !frame->data || !frame->data_bytes){
         return;

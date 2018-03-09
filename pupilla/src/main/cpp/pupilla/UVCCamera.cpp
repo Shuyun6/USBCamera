@@ -6,6 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "UVCCamera.h"
+#include "utilbase.h"
 
 UVCCamera::UVCCamera() {
     mFd = 0;
@@ -46,7 +47,7 @@ int UVCCamera::connect(int vid, int pid, int fd, int bus, int addr, char *usbfs)
         mUsbFS = strdup(usbfs);
         if (!mContext) {
             result = uvc_init2(&mContext, NULL, mUsbFS);
-            if (0 > result) {
+            if (result < 0) {
                 return result;
             }
         }
@@ -57,12 +58,21 @@ int UVCCamera::connect(int vid, int pid, int fd, int bus, int addr, char *usbfs)
             result = uvc_open(mDevice, &mDeviceHanlde);
             if (!result) {
                 mFd = fd;
-
+                mPreview = new UVCPreview(mDeviceHanlde);
+            }else{
+                uvc_unref_device(mDevice);
+                mDevice = NULL;
+                mDeviceHanlde = NULL;
+                close(fd);
             }
+        }else{
+            close(fd);
         }
 
+    }else{
+        LOGW("Camera is already opened.");
     }
-    return 1;
+    return result;
 
 }
 
